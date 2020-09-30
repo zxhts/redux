@@ -24,37 +24,41 @@ class Counter extends Component {
   }
 
   render() {
-    const { value, onIncrement, onDecrement } = this.props
+    const { value, onIncrement, onDecrement,title} = this.props
     return (
-      <p>
-        Clicked: {value} times
-        {' '}
-        <button onClick={onIncrement}>
-          +
-        </button>
-        {' '}
-        <button onClick={onDecrement}>
-          -
-        </button>
-        {' '}
-        <button onClick={this.incrementIfOdd}>
-          Increment if odd
-        </button>
-        {' '}
-        <button onClick={this.incrementIfEven}>
-          Increment if even
-        </button>
-        {' '}
-        <button onClick={this.incrementAsync}>
-          Increment async
-        </button>
-      </p>
+      <div>
+            <h1>{title}</h1>
+            <p>
+                Clicked: {value} times
+                {' '}
+                <button onClick={onIncrement}>
+                +
+                </button>
+                {' '}
+                <button onClick={onDecrement}>
+                -
+                </button>
+                {' '}
+                <button onClick={this.incrementIfOdd}>
+                Increment if odd
+                </button>
+                {' '}
+                <button onClick={this.incrementIfEven}>
+                Increment if even
+                </button>
+                {' '}
+                <button onClick={this.incrementAsync}>
+                Increment async
+                </button>
+            </p>
+      </div>    
     )
   }
 }
 
 Counter.propTypes = {
   value: PropTypes.number.isRequired,
+  title: PropTypes.string.isRequired,
   onIncrement: PropTypes.func.isRequired,
   onDecrement: PropTypes.func.isRequired
 }

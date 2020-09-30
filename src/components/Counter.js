@@ -2,19 +2,24 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
 class Counter extends Component {
+  // eslint-disable-next-line 
   constructor(props) {
     super(props);
-    this.incrementAsync = this.incrementAsync.bind(this);
-    this.incrementIfOdd = this.incrementIfOdd.bind(this);
   }
 
-  incrementIfOdd() {
+  incrementIfOdd = () => {
     if (this.props.value % 2 !== 0) {
+        this.props.onIncrement()
+      }
+  }
+
+  incrementIfEven = () => {
+    if (this.props.value % 2 === 0) {
       this.props.onIncrement()
     }
   }
 
-  incrementAsync() {
+  incrementAsync = () => {
     setTimeout(this.props.onIncrement, 1000)
   }
 
@@ -34,6 +39,10 @@ class Counter extends Component {
         {' '}
         <button onClick={this.incrementIfOdd}>
           Increment if odd
+        </button>
+        {' '}
+        <button onClick={this.incrementIfEven}>
+          Increment if even
         </button>
         {' '}
         <button onClick={this.incrementAsync}>

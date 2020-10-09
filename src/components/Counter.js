@@ -24,7 +24,7 @@ class Counter extends Component {
   }
 
   render() {
-    const { value, onIncrement, onDecrement,title} = this.props
+    const { value, onIncrement, onDecrement, title} = this.props
     return (
       <div>
             <h1>{title}</h1>
